@@ -1,0 +1,26 @@
+CLASS:
+
+DSTIME   
+
+FUNCTIONS 1:
+
+formattedDate  KEYWORD2
+formattedTime  KEYWORD2
+checkLeapyear  KEYWORD2
+setDS1307SQW   KEYWORD2
+en32K          KEYWORD2
+getTemp        KEYWORD2
+
+VARIABLES:
+
+year	         KEYWORD2
+month          KEYWORD2
+dayOfMonth     KEYWORD2
+dayOfWeek      KEYWORD2
+hour	         KEYWORD2
+minute         KEYWORD2
+second         KEYWORD2
+
+FUNCTIONS 2:
+setintalarmOn  KEYWORD2
+setintalarmOff KEYWORD2
