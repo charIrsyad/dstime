@@ -57,15 +57,6 @@ void begin(); /*Begin the rtc*/
 
 void en32K(bool onf); /*enable 32k pin*/
 
-    
-  private:
-
-  byte decToBcd(byte val); /*Decimal to Binary Coded Decimal*/
-
-  byte bcdToDec(byte val); /*Binary Coded Decimal to Decimal*/
-
-  byte rCB(bool values); /*read control byte of ds3231*/
-  
   unsigned long time2long(uint16_t days, uint8_t h, uint8_t m, uint8_t s); /*time to long*/
 
   uint16_t date2days(uint16_t y, uint8_t m, uint8_t d); /*date to days since 1/1/1970*/
@@ -73,6 +64,14 @@ void en32K(bool onf); /*enable 32k pin*/
   int doomsday(unsigned long t); /*weekday calc*/
 
   int monthc(String m); /*check month*/
+
+  private:
+
+  byte decToBcd(byte val); /*Decimal to Binary Coded Decimal*/
+
+  byte bcdToDec(byte val); /*Binary Coded Decimal to Decimal*/
+
+  byte rCB(bool values); /*read control byte of ds3231*/
 
   void wCB(byte ctrl, bool values); /*Write the control byte*/
 };
