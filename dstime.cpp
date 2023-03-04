@@ -38,7 +38,7 @@ void DSTIME::wCB(byte control, bool values) { //Write control byte
   Wire.endTransmission();
 }
 
-uint16_t date2days(uint16_t y, uint8_t m, uint8_t d) {
+uint16_t DSTIME::date2days(uint16_t y, uint8_t m, uint8_t d) {
     if (y >= 2000)
         y -= 2000;
     uint16_t days = d;
@@ -49,16 +49,16 @@ uint16_t date2days(uint16_t y, uint8_t m, uint8_t d) {
     return days + 365 * y + (y + 3) / 4 - 1;
 }
 
-unsigned long time2long(uint16_t days, uint8_t h, uint8_t m, uint8_t s) {
+unsigned long DSTIME::time2long(uint16_t days, uint8_t h, uint8_t m, uint8_t s) {
     return ((days * 24L + h) * 60 + m) * 60 + s;
 }
 
-int doomsday (unsigned long t) {
+int DSTIME::doomsday (unsigned long t) {
    
   return ((t / 86400) + 4) % 7;
 }
 
-int monthc(String m){
+int DSTIME::monthc(String m){
   if(m == "Jan"){
     return 1;
     
@@ -108,13 +108,13 @@ long  yr1 = yrs % 4;
 long  yr2 = yrs % 100;
 long  yr3 = yrs % 400;
   
-    if(yr1 == 0){
+    if(yr1 != 1){
     return 1;
     
-  } else if(yr2 == 0){
+  } else if(yr2 != 1){
     return 1;
     
-  } else if(yr3 == 0){
+  } else if(yr3 != 1){
     return 1;
     
   } else {
@@ -262,10 +262,10 @@ void DSTIME::setdatetimestring(String sdate, String stime){
   int mn = monthc(sdate.substring(0,3));
   int yy = sdate.substring(7,11).toInt() - 2000;
 
-  unsigned long unix = time2long(date2days(yy,mn,dd), hh,mm,ss);
-  int wk = doomsday(unix+946684800);
+  unsigned long unix = DSTIME::time2long(date2days(yy,mn,dd), hh,mm,ss);
+  int wk = DSTIME::doomsday(unix+946684800);
 
-  setdatetime(ss,mm,hh,wk,dd,mn,yy);
+  DSTIME::setdatetime(ss,mm,hh,wk,dd,mn,yy);
 }
 
 void DSTIME::en32K(bool onf) {
