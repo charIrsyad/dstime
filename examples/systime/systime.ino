@@ -1,13 +1,3 @@
-/*
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * 
- * 
- * BROKEN!!!!!!!!!!!!! BROKEN!!!!!!!!!!!!! BROKEN!!!!!!!!!!!!! BROKEN!!!!!!!!!!!!! BROKEN!!!!!!!!!!!!!
- * PLEASE HELP!!!!!!!!!!!!!!!!!! PLEASE HELP!!!!!!!!!!!!!!!!!! PLEASE HELP!!!!!!!!!!!!!!!!!!
- * 
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
-
 #include <dstime.h>
 
 DSTIME rtc; //class of rtc 
@@ -16,8 +6,8 @@ void setup()
 {
   rtc.begin();//begin the rtc
   Serial.begin(9600);
-  //rtc.setdatetimestring(String(__DATE__), String(__TIME__));
-  rtc.setdatetimestring("02 Dec 2010", "00:00:00");
+  rtc.setdatetimestring(String(__DATE__), String(__TIME__));
+  //rtc.setdatetimestring("02 Dec 2010", "00:00:00");
   
 }
 
