@@ -108,13 +108,13 @@ long  yr1 = yrs % 4;
 long  yr2 = yrs % 100;
 long  yr3 = yrs % 400;
   
-    if(yr1 != 1){
+    if(yr1 == 0){
     return 1;
     
-  } else if(yr2 != 1){
-    return 1;
+  } else if(yr2 == 0){
+    return 0;
     
-  } else if(yr3 != 1){
+  } else if(yr3 == 0){
     return 1;
     
   } else {
